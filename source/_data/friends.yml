@@ -1,0 +1,15 @@
+- group: 
+  description:  # 分组描述
+  items:
+    - title: awa # 名称
+      avatar: # 头像
+      url: # 链接
+      screenshot: # 截图
+      keywords: # 关键词
+      description: # 描述
+    - title: qwq # 名称
+      avatar: # 头像
+      url: # 链接
+      screenshot: # 截图
+      keywords: # 关键词
+      description: # 描述
