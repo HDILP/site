@@ -8,15 +8,15 @@ pin: true
 ---
 
 <p>
-`
+```
 {% span logo center large, HDILP-STUDIO %}
 {% span center small logo, Share the beauty %}
-`
+```
 </p>
 
 <br>
-`
+```
 {% btn solid large center, 关于, /about/, fa-regular fa-flag %}
-`
+```
 <br>
 
