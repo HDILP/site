@@ -2,7 +2,8 @@
 title: 将Hexo从GitHub Page迁移到Vercel
 seo_title: 将Hexo从GitHub Page迁移到Vercel
 date: 2024-04-14 15:30:00
-tags:
+layout: post
+tags: hexo
 ---
 前言：
 
