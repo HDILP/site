@@ -11,6 +11,8 @@ tags: hexo
 
 刚刚把我的blog的主题代码pull了一下同步到最新（我改了一些文件，出现了冲突。解决方法：`git add .` `git commit -m "1"`之后再`git pull`），又把网站评论系统Twikoo更新了一下（其实更新主题就把前端更了，后端只要改一下版本号就会自动更新了，很方便），现在准备把blog从**GitHub Page**迁移到**Vercel**。因为GitHub Page套Cloudflare对于国内来说实在是<u>太慢了</u>。
 
+<!-- more -->
+
 ------
 
 首先先在GitHub上新建一个repo，把这个repo用**GIt**连接到Hexo根目录（在`hexo init`的时候就已经帮你把**.git文件夹**和其他的东西弄好了）。
