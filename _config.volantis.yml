@@ -91,7 +91,7 @@ plugins:
     enable: true
     position: fixed       # cover: sticky on the cover.   fixed: Fixed as background for the site.
     shuffle: true         # shuffle playlist
-    duration: 150000       # Duration (ms)
+    duration: 30       # Duration (ms)
     fade: 1500            # fade duration (ms) (Not more than 1500)
     images: # For personal use only. At your own risk if used for commercial purposes !!!
 #       - https://img.hdilp.top/file/fa29d4cd4afe590fee5e5.jpg
@@ -209,9 +209,7 @@ sidebar:
         title: 公告
         url:
       content:
-        - '新年快乐！'
-        - '本站已装修完成'
-        - 'o(〃＾▽＾〃)o'
+        - '**本站已经完成从Github Page迁移到Vercel。**<br>国内访问速度从原来的55秒加速到5秒！'
     toc:
       class: toc
       display: [desktop, mobile] # [desktop, mobile]
