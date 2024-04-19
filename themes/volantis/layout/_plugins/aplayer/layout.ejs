@@ -4,8 +4,7 @@ let aplayer = theme.plugins.aplayer;
 <% if (theme.plugins.aplayer.enable == true) { %>
   <% if (aplayer.source == "meting") { %>
     <% if (post && post.music) { %>
-	  <div id="aplayerContent">
-		  <meting-js
+		 <meting-js
 			mini='true'
 			volume='<%- post.music.volume || aplayer.volume %>'
 			loop='<%- post.music.loop || aplayer.loop %>'
@@ -14,13 +13,7 @@ let aplayer = theme.plugins.aplayer;
 			type='<%- post.music.type || aplayer.type %>'
 			id='<%- post.music.id || aplayer.id %>'>
 		  </meting-js>
-	  </div>
-	  <script>
-        // 对所有链接跳转事件绑定pjax容器container
-        $(document).pjax('a[target!=_blank]', '#pageContent', {fragment: '#pageContent', timeout:8000})
-      </script>
     <% } else { %>
-	  <div id="aplayerContent">
 		  <meting-js
 			theme='<%- aplayer.theme %>'
 			autoplay='<%- aplayer.autoplay %>'
@@ -34,11 +27,6 @@ let aplayer = theme.plugins.aplayer;
 			id='<%- aplayer.id %>'
 			list-folded='<%- aplayer.list_folded %>'>
 		  </meting-js>
-	  </div>
-	  <script>
-        // 对所有链接跳转事件绑定pjax容器container
-        $(document).pjax('a[target!=_blank]', '#pageContent', {fragment: '#pageContent', timeout:8000})
-      </script>
     <% } %>
   <% } else { %>
     <% if (post && post.music) { %>
