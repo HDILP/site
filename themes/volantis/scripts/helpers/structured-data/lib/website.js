@@ -1,8 +1,8 @@
-module.exports = (hexo,option) => {
+module.exports = (hexo, option) => {
   const { config } = hexo;
 
   return {
-    "@context": "https://schema.org.cn",
+    "@context": "http://schema.org",
     "@type": "WebSite",
     name: option.website.name,
     url: option.website.url,

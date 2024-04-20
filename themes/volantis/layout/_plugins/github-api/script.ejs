@@ -20,4 +20,8 @@
     <% } %>
   };
   loadIssuesJS()
+  volantis.pjax.push(()=>{
+    loadIssuesJS();
+  })
+
 </script>

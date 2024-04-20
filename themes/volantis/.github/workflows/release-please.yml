@@ -1,5 +1,7 @@
 name: release-please
 on:
+  push:
+    branches: [ dev ]
   workflow_dispatch:
 
 jobs:
@@ -7,7 +9,7 @@ jobs:
     if: github.repository == 'volantis-x/hexo-theme-volantis'
     runs-on: ubuntu-latest
     steps:
-      - uses: google-github-actions/release-please-action@v4
+      - uses: google-github-actions/release-please-action@v3
         with:
           release-type: node
           package-name: hexo-theme-volantis
@@ -17,8 +19,8 @@ jobs:
     if: ${{ contains(github.event.head_commit.message, 'chore(dev)') && contains(github.event.head_commit.message, 'release') && github.repository == 'volantis-x/hexo-theme-volantis' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org
@@ -37,10 +39,10 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git clone https://github.com/volantis-x/hexo-theme-volantis.git hexo-theme-volantis
           cd hexo-theme-volantis
-          git fetch --all
+          git fetch origin
           git checkout main
           git reset --hard dc9134662502ed2aa8d39dfa09ffe81650a2b024
-          git merge origin/dev
+          git merge dev
           git push --force "https://github-actions[bot]:${{ secrets.GITHUB_TOKEN }}@github.com/volantis-x/hexo-theme-volantis.git" main:main
       - name: sync-coding
         run: |

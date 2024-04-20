@@ -2,7 +2,7 @@ module.exports = (hexo, option) => {
   const { config, page: post } = hexo;
 
   const blogposting = {
-    "@context": "https://schema.org.cn",
+    "@context": "http://schema.org",
     "@type": "BlogPosting",
     headline: post.title || post.seo_title,
     description: post.description || hexo.strip_html(post.excerpt) || config.description,
@@ -64,7 +64,7 @@ module.exports = (hexo, option) => {
       width: 1024,
       height: 768,
     };
-  }else{
+  } else {
     blogposting.image = {
       "@type": "ImageObject",
       url: option.logo.path,

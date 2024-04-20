@@ -11,3 +11,6 @@
 [branch "6.0"]
 	remote = origin
 	merge = refs/heads/6.0
+[branch "6.0-pjax"]
+	remote = origin
+	merge = refs/heads/6.0-pjax

@@ -2,7 +2,7 @@ module.exports = (hexo, option) => {
   const { config } = hexo;
 
   return {
-    "@context": "https://schema.org.cn",
+    "@context": "http://schema.org",
     "@type": "Person",
     name: option.person.name,
     image: {

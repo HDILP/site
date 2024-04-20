@@ -1,5 +1,6 @@
 <%_
-  // 为保证初次进入页面流畅，要求浏览器禁用Javascript时(仅HTML渲染)封面控制正常
+  // 为保证初次进入页面流畅，要求开启pjax且浏览器禁用Javascript时(仅HTML渲染)封面控制正常
+  // layout/_plugins/pjax/pdata.ejs
   // layout/_partial/cover.ejs
   // layout/_partial/header.ejs
   theme.cover_ctrl={}
@@ -9,6 +10,9 @@
   theme.cover_ctrl.scrollDownDisplay = 'none';
   theme.cover_ctrl.headerShow = 'show';
   if(theme.cover && theme.cover.height_scheme) {
+    theme.cover_ctrl.enableCover = true;
+  }
+  if(theme.plugins.pjax.enable&&theme.plugins.pjax.cover) {
     theme.cover_ctrl.enableCover = true;
   }
   if (theme.cover_ctrl.enableCover && page && page.cover) {

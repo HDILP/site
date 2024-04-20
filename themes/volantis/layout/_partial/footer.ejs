@@ -14,12 +14,12 @@
     //   theme_version = "v" + theme_version
     // }
   %>
-  <footer class="footer clearfix"  itemscope itemtype="https://schema.org.cn/WPFooter">
+  <footer class="footer clearfix"  itemscope itemtype="http://schema.org/WPFooter">
     <br><br>
     <% layout.forEach(function(item){ %>
       <% if (item == 'social') { %>
         <br>
-        <div class="social-wrapper" itemprop="about" itemscope itemtype="https://schema.org.cn/Thing">
+        <div class="social-wrapper" itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <% getList(theme.site_footer.social).forEach(function(value){ %>
             <% if (value.url && (value.icon || value.img || value.avatar)) { %>
               <a href="<%= url_for(value.url) %>"
@@ -53,7 +53,7 @@
       <% } else if (item == 'copyright') { %>
         <div class='copyright'>
         <%- markdown(theme.site_footer.copyright) %>
-		<a href="https://icp.gov.moe/?keyword=20242023" target="_blank">萌ICP备20242023号</a>
+	    <a href="https://icp.gov.moe/?keyword=20242023" target="_blank">萌ICP备20242023号</a>
         </div>
       <% } else { %>
         <% if (item in theme.site_footer) { %>
@@ -64,6 +64,5 @@
     <!-- Custom Files footer begin-->
     <%- volantis_inject('footer') %>
     <!-- Custom Files footer end-->
-	
   </footer>
 <% } %>
