@@ -20,7 +20,7 @@ let SearchService = (() => {
   <div id="modal-overlay" class="modal-overlay"></div>
 </div>
 `;
-  fn.init = async () => {
+  fn.init = () => {
     let div = document.createElement("div");
     div.innerHTML += fn.template;
     document.body.append(div);
@@ -35,9 +35,6 @@ let SearchService = (() => {
     document
       .querySelector("#modal-overlay")
       .addEventListener("click", fn.close, false);
-    if (!fn.data) {
-      fn.data = await fn.fetchData();
-    }
   };
   fn.onSubmit = (event) => {
     event.preventDefault();
@@ -63,9 +60,6 @@ let SearchService = (() => {
     let results = "";
     results += fn.buildResultList(fn.data.pages);
     results += fn.buildResultList(fn.data.posts);
-    if (results === "") {
-      results = `<div id="resule-hits-empty"><i class="fa-solid fa-box-open"></i><p>${volantis.GLOBAL_CONFIG.languages.search.hits_empty.replace(/\$\{query}/, fn.queryText)}</p></div>`
-    }
     document.querySelector("#u-search .modal-results").innerHTML = results;
     window.pjax && pjax.refresh(document.querySelector("#u-search"));
     document.addEventListener("keydown", function f(event) {
@@ -79,7 +73,7 @@ let SearchService = (() => {
     document.querySelector("#u-search").style.display = "none";
   };
   fn.fetchData = () => {
-    return fetch(volantis.GLOBAL_CONFIG.search.dataPath)
+    return fetch(SearchServiceDataPath)
       .then((response) => response.text())
       .then((res) => {
         const data = JSON.parse(res);

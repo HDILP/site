@@ -7,19 +7,19 @@
 
 'use strict';
 
-hexo.extend.tag.register('friends', function (args) {
+hexo.extend.tag.register('friends', function(args) {
   args = hexo.args.map(args, ['only', 'not', 'repo', 'api']);
   if (args.only) {
-    if (/::/g.test(args.only)) {
+    if(/::/g.test(args.only)){
       args.only = args.only.split('::');
-    } else {
+    }else{
       args.only = args.only.split(',');
     }
   }
   if (args.not) {
-    if (/::/g.test(args.not)) {
+    if(/::/g.test(args.not)){
       args.not = args.not.split('::');
-    } else {
+    }else{
       args.not = args.not.split(',');
     }
   }
@@ -39,10 +39,10 @@ hexo.extend.tag.register('friends', function (args) {
   function groupHeader(group) {
     var header = '<div class="group-header">';
     if (group.title) {
-      header += hexo.render.renderSync({ text: group.title, engine: 'markdown' }).split('\n').join('');
+      header += hexo.render.renderSync({text: group.title, engine: 'markdown'}).split('\n').join('');
     }
     if (group.description) {
-      header += hexo.render.renderSync({ text: group.description, engine: 'markdown' }).split('\n').join('');
+      header += hexo.render.renderSync({text: group.description, engine: 'markdown'}).split('\n').join('');
     }
     header += '</div>';
     return header;
@@ -72,7 +72,7 @@ hexo.extend.tag.register('friends', function (args) {
         if (group.repo) {
           el += '<div class="friendsjs-wrap"';
           el += ' id="friends-api"';
-          el += ' api="' + (group.api || 'https://issues-api.xaoxuu.com') + '/v1/' + group.repo + '"';
+          el += ' api="' + (group.api || 'https://issues-api.vercel.app') + '/v1/' + group.repo + '"';
           el += '>';
           el += '<div class="loading-wrap"><svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg><p></p></div>';
           el += '<div class="group-body"></div>';
