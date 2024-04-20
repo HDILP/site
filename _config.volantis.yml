@@ -94,42 +94,25 @@ plugins:
     duration: 300000       # Duration (ms)
     fade: 1500            # fade duration (ms) (Not more than 1500)
     images: # For personal use only. At your own risk if used for commercial purposes !!!
-#       - https://img.hdilp.top/file/fa29d4cd4afe590fee5e5.jpg
-#       - https://img.hdilp.top/file/a85ae8eeb8e1a27ba1776.jpg
-#       - https://img.hdilp.top/file/fb6138c7bec3432d5e736.jpg
-#       - https://img.hdilp.top/file/f5f070e7a39add221d863.jpg
-#       - https://img.hdilp.top/file/e9c2faf742207077a29c1.jpg
-#       - https://img.hdilp.top/file/e80de4113bb3160e2c25e.jpg
-#       - https://img.hdilp.top/file/e01762c7b7fa7547b5db5.jpg
-#       - https://img.hdilp.top/file/ac2c1f188dacca7175724.jpg
-#       - https://img.hdilp.top/file/92c04e0fca24038e55702.jpg
-#       - https://img.hdilp.top/file/7f9a6f66182e499051c38.jpg
-#       - https://img.hdilp.top/file/6ece6e435264d27382e11.jpg
-#       - https://img.hdilp.top/file/563859dced999398961b8.jpg
-#       - https://img.hdilp.top/file/512ab2861ae1390696d5e.jpg
-#       - https://img.hdilp.top/file/27e64319d68880f97ca3e.jpg
-#       - https://img.hdilp.top/file/17d2c7dcc1e58c3a73208.jpg
-      - https://cdn.jsdelivr.us/gh/HDILP/hdilp.github.io/picture/1.jpg
-      - https://cdn.jsdelivr.us/gh/HDILP/hdilp.github.io/picture/2.jpg
-      - https://cdn.jsdelivr.us/gh/HDILP/hdilp.github.io/picture/3.jpg
-      - https://cdn.jsdelivr.us/gh/HDILP/hdilp.github.io/picture/4.jpg
-      - https://cdn.jsdelivr.us/gh/HDILP/hdilp.github.io/picture/5.jpg
-      - https://cdn.jsdelivr.us/gh/HDILP/hdilp.github.io/picture/6.jpg
-      - https://cdn.jsdelivr.us/gh/HDILP/hdilp.github.io/picture/7.jpg
-      - https://cdn.jsdelivr.us/gh/HDILP/hdilp.github.io/picture/8.jpg
-      - https://cdn.jsdelivr.us/gh/HDILP/hdilp.github.io/picture/9.jpg
-      - https://cdn.jsdelivr.us/gh/HDILP/hdilp.github.io/picture/10.jpg
-      - https://cdn.jsdelivr.us/gh/HDILP/hdilp.github.io/picture/11.jpg
-      - https://cdn.jsdelivr.us/gh/HDILP/hdilp.github.io/picture/12.jpg
-      - https://cdn.jsdelivr.us/gh/HDILP/hdilp.github.io/picture/13.jpg
-      - https://cdn.jsdelivr.us/gh/HDILP/hdilp.github.io/picture/14.jpg
-      - https://cdn.jsdelivr.us/gh/HDILP/hdilp.github.io/picture/15.jpg
+	  - /picture/1.jpg
+	  - /picture/2.jpg
+	  - /picture/3.jpg
+	  - /picture/4.jpg
+	  - /picture/5.jpg
+	  - /picture/6.jpg
+	  - /picture/7.jpg
+	  - /picture/8.jpg
+	  - /picture/9.jpg
+	  - /picture/10.jpg
+	  - /picture/11.jpg
+	  - /picture/12.jpg
+	  - /picture/13.jpg
+	  - /picture/14.jpg
+	  - /picture/15.jpg
+
 
   aplayer:
     enable: true
-    js:
-      aplayer: https://unpkg.com/aplayer@1.10/dist/APlayer.min.js
-      meting: https://unpkg.com/meting@2.0/dist/Meting.min.js
     # Required
     server: netease   # netease, tencent, kugou, xiami, baidu
     type: playlist    # song, playlist, album, search, artist
@@ -144,6 +127,7 @@ plugins:
     list_max_height: 320px # list max height
     list_folded: true
     autoHide: true    # hide automaticaly
+  
   message:
     enable: true
     icon: # 默认图标，支持对图标添加颜色，可选值：see：/source/css/_style/_plugins/fontcolor.styl
@@ -190,7 +174,7 @@ cover:
 
 
 comments:
-  title: <i class='fas fa-comments'></i> 评论区o(〃＾▽＾〃)o
+  title: <i class='fas fa-comments'></i> 评论区
   subtitle:
   service: twikoo
   # giscus
@@ -235,7 +219,7 @@ sidebar:
         - name: 友情链接（未装修）
           icon: fa-solid fa-link
           url: /friends/
-        - name: 大型撕逼现场
+        - name: 说说&留言区
           icon: fa-solid fa-comment
           url: /shuoshuo/
         - name: 赞助
@@ -251,7 +235,7 @@ sidebar:
           url: https://space.bilibili.com/544053960
           rel: external nofollow noopener noreferrer
           target: _blank
-        - name: 更新日志
+        - name: 主题更新日志
           icon: fa-solid fa-tags
           url: https://github.com/volantis-x/hexo-theme-volantis/releases/
           rel: external nofollow noopener noreferrer
