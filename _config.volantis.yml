@@ -118,7 +118,7 @@ plugins:
     type: playlist    # song, playlist, album, search, artist
     id: 4865548839    # song id / playlist id / album id / search keyword
     # Optional
-    fixed: false      # enable fixed mode
+    fixed: true      # enable fixed mode
     theme: '#FFAAB2'  # main color
     autoplay: true   # audio autoplay
     order: random       # player play order, values: 'list', 'random'
@@ -127,6 +127,16 @@ plugins:
     list_max_height: 320px # list max height
     list_folded: true
     autoHide: true    # hide automaticaly
+   
+   pjax:
+    enable: true
+    cover: true          # 封面是否pjax处理 false：每次切换页面封面都重载，适合封面较少的情况 true：封面经过Pjax处理，适合封面较多的情况
+    timeout: 5000        # The timeout in milliseconds for the XHR requests. Set to 0 to disable the timeout.
+    cacheBust: false     # When set to true, Pjax appends a timestamp  to skip the browser cache.
+    animation: false     # false, nprogress, circle
+    banUrl:             # 被屏蔽的 url 地址将不启用 pjax 跳转，可以在控制台下使用 window.location.pathname 获取
+      # - '/artitalk/'     # artitalk 不支持 pjax
+      # - '/bb/'           # bbtalk 不支持 pjax
   
   message:
     enable: true
@@ -157,9 +167,9 @@ plugins:
       notice: true                        # 唤醒原右键菜单的通知
 
 cover:
-#  height_scheme: full # full, half
+  height_scheme: half # full, half
   layout_scheme: search # blank (留白), search (搜索), dock (坞), featured (精选), focus (焦点)
-  display:
+  display: 
     home: true
     archive: true
     others: false # can be written in front-matter 'cover: true'
