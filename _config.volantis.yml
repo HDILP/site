@@ -1,5 +1,4 @@
-debug: pjax
-
+debug: false
 # 文章布局
 article:
   # 文章列表页面的文章卡片布局方案
