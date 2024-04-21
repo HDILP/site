@@ -1,4 +1,4 @@
-debug: pjax
+debug: false
 
 # 文章布局
 article:
