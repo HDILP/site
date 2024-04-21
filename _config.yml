@@ -16,7 +16,7 @@ favicon: https://pic.imgdb.cn/item/63a56d3108b68301634b34cc.jpg
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://hdilp.top/
-permalink: :title.html
+permalink: posts/:title.html
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
