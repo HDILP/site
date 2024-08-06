@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>防屏蔽词</title>
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    textarea, button {
+        border-radius: 10px;
+        padding: 5px;
+    }
+    textarea {
+        width: 300px;
+        height: 100px;
+        resize: none;
+        background-color: #ffffff;
+    }
+    button {
+        width: 150px;
+        background-color: rgba(255, 255, 255, 0.75);
+        border: none;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <textarea id="inputText" placeholder="输入文章 或 文字 ..."></textarea>
+    <button onclick="convertText()">转换</button>
+    <textarea id="outputText" placeholder="转换后的结果会在这里 ..." readonly></textarea>
+</div>
+
+<script>
+    function convertText() {
+        const inputText = document.getElementById('inputText').value;
+        let afterConversionText = "";
+        for (const letter of inputText) {
+            afterConversionText += letter + '\u200B';
+        }
+        document.getElementById('outputText').value = afterConversionText;
+    }
+</script>
+
+</body>
+</html>
