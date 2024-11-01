@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>化学式读法转换器</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f4f8;
+    }
+    .container {
+      background: #ffffff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 300px;
+    }
+    h1 {
+      color: #333333;
+      font-size: 24px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 15px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 15px;
+      color: #ffffff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .output {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>化学式读法转换器</h1>
+    <input type="text" id="formulaInput" placeholder="输入化学式（如 H2O）">
+    <button onclick="convertFormula()">转换读法</button>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    // 化学式和中文读法映射表
+    const commonCompounds = {
+        "H2O": "水",
+        "CO2": "二氧化碳",
+        "CO": "一氧化碳",
+        "O2": "氧气",
+        "N2": "氮气",
+        "NH3": "氨气",
+        "H2SO4": "硫酸",
+        "HNO3": "硝酸",
+        "HCl": "盐酸",
+        "NaOH": "氢氧化钠",
+        "KOH": "氢氧化钾",
+        "Ca(OH)2": "氢氧化钙",
+        "NaCl": "氯化钠",
+        "KCl": "氯化钾",
+        "CaCO3": "碳酸钙",
+        "Na2CO3": "碳酸钠",
+        "NaHCO3": "碳酸氢钠",
+        "CH4": "甲烷",
+        "C2H6": "乙烷",
+        "C3H8": "丙烷",
+        "C2H5OH": "乙醇",
+        "CH3OH": "甲醇",
+        "C6H12O6": "葡萄糖",
+        "H2": "氢气",
+        "Cl2": "氯气",
+        "SO2": "二氧化硫",
+        "SO3": "三氧化硫",
+        "NO2": "二氧化氮",
+        "NO": "一氧化氮",
+        "H2S": "硫化氢",
+        "CaO": "氧化钙",
+        "MgO": "氧化镁",
+        "Fe2O3": "氧化铁",
+        "Fe3O4": "四氧化三铁",
+        "Al2O3": "氧化铝",
+        "CuO": "氧化铜",
+        "Cu2O": "氧化亚铜",
+        "ZnO": "氧化锌",
+        "Na2SO4": "硫酸钠",
+        "K2SO4": "硫酸钾",
+        "CaSO4": "硫酸钙",
+        "FeSO4": "硫酸亚铁",
+        "CuSO4": "硫酸铜",
+        "AgNO3": "硝酸银",
+        "CaCl2": "氯化钙",
+        "Na2O": "氧化钠",
+        "K2O": "氧化钾",
+        "SiO2": "二氧化硅",
+        "Na3PO4": "磷酸钠",
+        "Na2HPO4": "磷酸氢二钠",
+        "NaH2PO4": "磷酸二氢钠",
+        "Ca3(PO4)2": "磷酸钙",
+        "KMnO4": "高锰酸钾",
+        "MnO2": "二氧化锰",
+        "H2O2": "过氧化氢",
+        "AlCl3": "氯化铝",
+        "KNO3": "硝酸钾",
+        "BaSO4": "硫酸钡",
+        "Pb(NO3)2": "硝酸铅",
+        "FeCl3": "氯化铁",
+        "FeCl2": "氯化亚铁",
+        "MgCl2": "氯化镁",
+        "Na2S": "硫化钠",
+        "K2S": "硫化钾",
+        "Ca3N2": "氮化钙",
+        "SiC": "碳化硅",
+        "NaBr": "溴化钠",
+        "KBr": "溴化钾",
+        "ZnSO4": "硫酸锌",
+        "PbS": "硫化铅",
+        "AgCl": "氯化银",
+        "HgO": "氧化汞",
+        "SnO2": "二氧化锡",
+        "Cu(NO3)2": "硝酸铜",
+        "ZnCl2": "氯化锌",
+        "LiOH": "氢氧化锂",
+        "Ba(OH)2": "氢氧化钡",
+        "NH4Cl": "氯化铵",
+        "MgSO4": "硫酸镁",
+        "Ca3(PO4)2": "磷酸钙",
+        "K2Cr2O7": "重铬酸钾",
+        "CuCl2": "氯化铜",
+        "Al2(SO4)3": "硫酸铝"
+    };
+
+
+
+    // 数量到中文读法的映射
+    const countToChinese = {
+      1: '', 2: '二', 3: '三', 4: '四', 5: '五', 6: '六', 7: '七', 8: '八'
+    };
+
+    // 元素符号到名称的映射表
+    const elementNames = {
+      'H': '氢', 'O': '氧', 'N': '氮', 'C': '碳', 'Na': '钠', 'Cl': '氯',
+      'Ca': '钙', 'Fe': '铁', 'S': '硫', 'K': '钾', 'Mg': '镁', 'P': '磷'
+      // 需要时可以添加更多元素
+    };
+
+    function convertFormula() {
+      const formula = document.getElementById("formulaInput").value.trim();
+      const outputElement = document.getElementById("output");
+
+      // 如果在常见化合物字典中，直接返回读法
+      if (commonCompounds[formula]) {
+        outputElement.innerText = commonCompounds[formula];
+        return;
+      }
+
+      // 否则解析化学式
+      const pattern = /([A-Z][a-z]?)(\d*)/g;
+      let result = "";
+      let match;
+
+      while ((match = pattern.exec(formula)) !== null) {
+        const element = match[1];
+        const count = match[2] ? parseInt(match[2]) : 1;
+        const elementName = elementNames[element] || element; // 默认返回符号
+        const countChinese = countToChinese[count] || count;
+
+        result += countChinese + elementName;
+      }
+
+      outputElement.innerText = result.replace(/\d/g, "") || "无法识别该化学式";
+}
+  </script>
+</body>
+</html>
