@@ -51,6 +51,8 @@
   <div class="container">
     <h1>化学式读法转换器</h1>
     <input type="text" id="formulaInput" placeholder="输入化学式（如 H2O）">
+    <input type="text" id="chineseInput" placeholder="输入中文名称（如 水）">
+    <button onclick="reverseConvertFormula()">反向转换</button>
     <button onclick="convertFormula()">转换读法</button>
     <div id="output" class="output"></div>
   </div>
@@ -144,7 +146,6 @@
     };
 
 
-
     // 数量到中文读法的映射
     const countToChinese = {
       1: '', 2: '二', 3: '三', 4: '四', 5: '五', 6: '六', 7: '七', 8: '八'
@@ -165,6 +166,37 @@
   'Md': '钔', 'No': '锘', 'Lr': '铹', 'Rf': '𬬻', 'Db': '𬭊', 'Sg': '𬭳', 'Bh': '𬭛', 'Hs': '𬭶', 'Mt': '鿏', 'Ds': '𫟼',
   'Rg': '𬬭', 'Cn': '鿔', 'Nh': '鿭', 'Fl': '𫓧', 'Mc': '鿬', 'Lv': '鿫', 'Ts': '𫟷', 'Og': '𫓯'
 };
+    // 生成中文到化学式的映射表
+    const chineseToFormula = {};
+    for (let formula in commonCompounds) {
+      const chineseName = commonCompounds[formula];
+      chineseToFormula[chineseName] = formula;
+  }
+
+    // 生成中文到元素符号的映射表
+    const chineseToElement = {};
+    for (let element in elementNames) {
+      const chineseName = elementNames[element];
+      chineseToElement[chineseName] = element;
+  }
+
+    function reverseConvertFormula() {
+      const chineseInput = document.getElementById("chineseInput").value.trim();
+        const outputElement = document.getElementById("output");
+
+      // 优先检查中文名称是否在化合物映射表中
+      if (chineseToFormula[chineseInput]) {
+          outputElement.innerText = chineseToFormula[chineseInput];
+      } 
+      // 如果不在化合物中，检查元素符号映射表
+      else if (chineseToElement[chineseInput]) {
+          outputElement.innerText = chineseToElement[chineseInput];
+      } 
+      // 如果都不在，提示无法识别
+      else {
+          outputElement.innerText = "无法识别该中文名称";
+      }
+  }
 
     function convertFormula() {
       const formula = document.getElementById("formulaInput").value.trim();
