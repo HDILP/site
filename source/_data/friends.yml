@@ -1,15 +1,6 @@
-- group: test
-  description: awa # 分组描述
+- group: 我的朋友们
+  description:  # 分组描述
   items:
-    - title: awa # 名称
-      avatar: none # 头像
-      url: / # 链接
-      screenshot: none # 截图
-      keywords: awa # 关键词
-      description: none # 描述
-    - title: qwq # 名称
-      avatar: none # 头像
-      url: / # 链接
-      screenshot: none # 截图
-      keywords: none # 关键词
-      description: none # 描述
+    - title: 林夼 # 名称
+      avatar: https://s3.bmp.ovh/imgs/2025/03/23/899ace4fbef4d3f6.jpg # 头像
+      url: https://linkuang0.github.io # 链接
