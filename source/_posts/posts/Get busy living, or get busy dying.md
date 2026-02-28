@@ -1,6 +1,7 @@
 ---  
-title: Get busy living, or get busy dying.
+title: Get busy living, or get busy dying
 date: 2026/2/28 16:50:25  
+layout: post
 ---
 
 > 我仍在等待一个节点，但我害怕我还没有准备好
