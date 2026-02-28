@@ -1,6 +1,6 @@
----  
+---
 title: Get busy living, or get busy dying
-date: 2026-2-28  
+date: 2026-2-28 
 layout: post
 ---
 
