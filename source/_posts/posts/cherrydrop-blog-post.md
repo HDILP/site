@@ -1,7 +1,6 @@
 ---
-title: 70MB到15MB:我和AI联手，把Python桌面应用榨干了
-date: 2026-05-05 12:19:00
-updated: 2026-05-05 12:19:00
+title: 70MB到15MB 我和AI联手，把Python桌面应用榨干了
+date: 2026-05-05
 tags:
   - Python
   - PyQt5
