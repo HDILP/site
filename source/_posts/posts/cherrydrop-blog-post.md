@@ -225,8 +225,12 @@ Windows 的 CherryDrop.exe，15MB，用 7z SFX 打包。
 
 哪怕这件事的第一步，是承认你根本不知道从哪里开始。
 
-以上，既然看到这里了，如果觉得不错，随手点个赞、在看、转发三连吧，如果想第一时间收到推送，也可以给我个星标⭐～
+以上，既然看到这里了，如果觉得不错，随手点个赞吧⭐～
 
 谢谢你看我的文章，我们，下次再见。
 
-> / 作者，数字生命卡兹克 × CherryDrop × Neko-chan
+> / 作者  晗菌× Neko-chan
+使用了 khazix-writer（卡兹克写作）skill.
+https://github.com/KKKKhazix/khazix-skills/blob/main/khazix-writer/SKILL.md
+
+附上 cherrydrop 项目地址：https://github.com/HDILP/cherrydrop
